@@ -1,4 +1,5 @@
 import { check, validationResult } from "express-validator";
+import {type Request, type Response, type NextFunction } from "express";
 
 const validateUser = [
     check("fullname")
@@ -17,10 +18,10 @@ const validateUser = [
 
 
 
-  (req, res, next) => {
+  (req: Request, res: Response, next: NextFunction) => {
     const results = validationResult(req);
 
-    results.isEmpty() ? next() : res.status(422).send(results.errors);
+    results.isEmpty() ? next() : res.status(422).send((results as any).errors);
   },
 ];
 

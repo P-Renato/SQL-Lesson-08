@@ -1,6 +1,7 @@
 import User from "../models/users";
+import {type Request, type Response, type NextFunction } from "express";
 
-export const registerUser = async (req, res, next) => {
+export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { fullname, username, password } = req.body;
 
@@ -11,7 +12,7 @@ export const registerUser = async (req, res, next) => {
     }
 }
 
-export const loginUser = (req, res, next) => {
+export const loginUser = (req: Request, res: Response, next: NextFunction) => {
     try {
         
     } catch (error) {
